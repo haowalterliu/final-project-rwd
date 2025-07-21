@@ -17,15 +17,6 @@ h1 {
     font-size: 1.95em;
 }
 
-figure{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    margin: 0;
-    border: 5px solid rgb(189, 189, 189);
-}
-
 .grid{
     display: grid;
     grid-template-columns: 90%;
@@ -34,9 +25,21 @@ figure{
     row-gap: 10px;
 }
 
-.grid img{
+.grid figure{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin: 0;
+    border: 5px solid rgb(189, 189, 189);
     border-radius: 35px;
+    overflow: hidden;
+}
+
+.grid figure img {
     width: 100%;
+    height: auto;
+    display: block;
 }
 
 @media screen and (min-width: 772px) {
@@ -44,23 +47,20 @@ figure{
         grid-template-columns: repeat(2, 45%);
         align-items: center;
     }
+    .grid figure {
+        border-radius: 500px;
+    }
     .grid figure:last-child {
         grid-column: 1/ span 2;
     }
-    .grid img {
-        width: 100%;
-        border-radius: 500px;
-    }
-
 }
 
 @media screen and (min-width: 992px) {
+    .grid figure{
+        border-radius: 0px;
+    }
     .grid figure:nth-child(3n) {
         grid-column: 1/ span 2;
-    }
-    .grid img {
-        width: 100%;
-        border-radius: 0px;
     }
 }
 
@@ -71,7 +71,7 @@ figure{
   }
 
 @media (prefers-color-scheme: dark) {
-    figure{
+    .grid figure {
         background-color: #000000;
         color: rgb(255, 232, 59);
         border-color: #000000;
